@@ -6,32 +6,46 @@
     <title>松のゲームサーバー | エキサイティングなDiscordコミュニティへようこそ</title>
     <!-- ファビコンを設定します -->
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!-- ICOファイルでうまくいかない場合は、以下のPNG形式の行に置き換えてみてください -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
     <!-- Tailwind CSSを読み込みます -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* OrbitronフォントとInterフォントを読み込みます */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Orbitron:wght@400;500;700&display=swap');
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif; /* 全体的に読みやすいサンセリフフォント */
+            /* 背景グラデーションを元のネオンカラーに */
+            background: linear-gradient(to bottom right, #1a202c, #000000); /* gray-900 から 黒へのグラデーション */
         }
         h1, h2 {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Orbitron', sans-serif; /* ネオン風の見出しフォント */
             /* ネオン風のテキストシャドウ */
             text-shadow: 0 0 5px rgba(0, 255, 255, 0.7), 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
         }
+        /* メインコンテナの背景とボーダーをネオンに調整 */
+        .main-container-neon {
+            background-color: #1a202c; /* gray-900 */
+            border: 2px solid;
+            border-image: linear-gradient(to right, #0ff, #f0f, #ff0) 1; /* シアン、マゼンタ、黄色のグラデーションボーダー */
+            box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.5), 0 0 25px rgba(255, 255, 0, 0.5); /* ネオンの光 */
+        }
+        /* ボタンのスタイルをネオンに調整 */
         .neon-button {
-            box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff;
+            background: linear-gradient(to right, #2563eb, #9333ea); /* blue-600 から purple-600 のグラデーション */
+            box-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff; /* ネオンの光 */
             transition: all 0.3s ease-in-out;
         }
         .neon-button:hover {
             box-shadow: 0 0 7px #0ff, 0 0 14px #0ff, 0 0 21px #0ff, 0 0 28px #0ff, 0 0 35px #0ff, 0 0 42px #0ff;
             transform: scale(1.05);
         }
-        .neon-border {
-            border: 2px solid;
-            border-image: linear-gradient(to right, #0ff, #f0f, #ff0) 1;
-            box-shadow: 0 0 8px rgba(0, 255, 255, 0.5), 0 0 15px rgba(255, 0, 255, 0.5), 0 0 25px rgba(255, 255, 0, 0.5);
-        }
+        /* テキストカラーをネオンに調整 */
+        /* 既存のTailwindクラスをそのまま使用し、必要に応じて強調色を定義 */
+        
+        /* FAQセクションの背景色とテキスト色をネオンに調整 */
         .faq-question {
             cursor: pointer;
             padding: 1rem;
@@ -57,29 +71,44 @@
             max-height: 200px; /* 適切な最大値に調整してください */
             padding-bottom: 1rem;
         }
+
+        /* アイコンボーダーをネオンに */
+        .icon-border-neon {
+            border-color: #00FFFF; /* シアン */
+            box-shadow: 0 0 10px rgba(0,255,255,0.7); /* シアンのネオンシャドウ */
+        }
+
+        /* FAQ矢印の色 */
         .faq-question .arrow {
+            color: #00FFFF; /* シアン */
             transition: transform 0.3s ease;
         }
         .faq-question.active .arrow {
             transform: rotate(90deg);
         }
+
+        /* フッターのボーダーをネオンに */
+        .footer-border-neon {
+            border-color: #4a5568; /* gray-700 */
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-900 to-black min-h-screen flex flex-col justify-center items-center p-4 text-white">
+<body class="min-h-screen flex flex-col justify-center items-center p-4 text-white">
 
     <!-- メインコンテナ -->
-    <div class="bg-gray-900 p-8 rounded-xl shadow-2xl max-w-2xl w-full text-center neon-border">
+    <div class="p-8 rounded-xl shadow-2xl max-w-2xl w-full text-center main-container-neon">
         <header class="mb-8">
             <!-- サーバーアイコンをタイトル近くに挿入 -->
-            <!-- ここにあなたのサーバーアイコンのURLを貼り付けてください！ -->
-            <img src="https://cdn.discordapp.com/icons/1322726687493980302/9d2599f9771265af168093148f18149e.png?size=1024" alt="松のゲームサーバーのアイコン" class="mx-auto mb-4 rounded-full border-4 border-cyan-500 shadow-lg" style="width: 120px; height: 120px; box-shadow: 0 0 10px rgba(0,255,255,0.7);">
+            <img src="https://cdn.discordapp.com/icons/1322726687493980302/9d2599f9771265af168093148f18149e.png?size=1024" alt="松のゲームサーバーのアイコン" class="mx-auto mb-4 rounded-full border-4 icon-border-neon" style="width: 120px; height: 120px;">
 
-            <h1 class="text-6xl font-bold text-cyan-400 mb-4">discordサーバーの松のゲームサーバーへようこそ</h1>
+            <!-- h1のフォントサイズをモバイル対応 -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-cyan-400 mb-4">discordサーバーの松のゲームサーバーへようこそ</h1>
             <p class="text-xl text-purple-300">ゲーム好きが集まるコミュニティ</p>
         </header>
 
         <section class="mb-8">
-            <h2 class="text-3xl font-semibold text-green-400 mb-4">松のゲームサーバーとは？</h2>
+            <!-- h2のフォントサイズをモバイル対応 -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-green-400 mb-4">松のゲームサーバーとは？</h2>
             <p class="text-lg text-gray-300 leading-relaxed">
                 松のゲームサーバーは、あらゆるジャンルのゲームを楽しむプレイヤーが集まる活気あるディスコードサーバーです。
                 個性豊かなメンバーがたくさんいますが、みんなと楽しく交流できる居心地の良い場所です！
@@ -89,7 +118,8 @@
         </section>
 
         <section class="mb-8">
-            <h2 class="text-3xl font-semibold text-green-400 mb-4">サーバーでできること</h2>
+            <!-- h2のフォントサイズをモバイル対応 -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-green-400 mb-4">サーバーでできること</h2>
             <ul class="list-disc list-inside text-lg text-gray-300 space-y-2">
                 <li><span class="text-yellow-300">🎮 ゲームチャンネル:</span> 最新のゲームについて語り合ったり、一緒にプレイしたり！</li>
                 <li><span class="text-yellow-300">⛏️ マイクラマルチプレイ:</span> 大人気のマイクラでみんなと協力プレイ！定期的にサーバーを立てて遊んでいます！</li>
@@ -101,23 +131,29 @@
 
         <!-- サーバーのルールセクション -->
         <section class="mb-8 text-left">
-            <h2 class="text-3xl font-semibold text-green-400 mb-4 text-center">サーバーのルール</h2>
+            <!-- h2のフォントサイズをモバイル対応 -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-green-400 mb-4 text-center">サーバーのルール</h2>
             <div class="space-y-4 px-4 text-gray-300">
-                <h3 class="text-4xl font-bold text-cyan-300 mb-2">大前提として[Discord利用規約]、[Discordコミュニティガイドライン]を守ってください！</h3>
+                <!-- h3のフォントサイズをモバイル対応 -->
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-cyan-300 mb-2">大前提として[Discord利用規約]、[Discordコミュニティガイドライン]を守ってください！</h3>
 
-                <h3 class="text-3xl font-bold text-cyan-300 mb-2 mt-6">新規の方へ</h3>
+                <!-- h3のフォントサイズをモバイル対応 -->
+                <h3 class="text-2xl sm:text-3xl font-bold text-cyan-300 mb-2 mt-6">新規の方へ</h3>
                 <p>このルールを読んだ後に下の認証を押してください</p>
                 <p>自己紹介でやってるゲームを書いてください</p>
 
-                <h4 class="text-2xl font-bold text-purple-300 mb-2 mt-6">投票について</h4>
+                <!-- h4のフォントサイズをモバイル対応 -->
+                <h4 class="text-xl sm:text-2xl font-bold text-purple-300 mb-2 mt-6">投票について</h4>
                 <p>投票ではサブ垢による投票は無効とします。</p>
 
-                <h3 class="text-3xl font-bold text-cyan-300 mb-2 mt-6">以下の行為は管理者の判断により段階的に処罰されます</h3>
+                <!-- h3のフォントサイズをモバイル対応 -->
+                <h3 class="text-2xl sm:text-3xl font-bold text-cyan-300 mb-2 mt-6">以下の行為は管理者の判断により段階的に処罰されます</h3>
                 <p>注意→タイムアウト（1時間）→タイムアウト（一日）→BAN<br>
                 タイムアウト以上の場合は半年間執行猶予ロールが付与されて執行猶予期間内に注意でも問題を起こしたらBANとなっています<br>
                 他にもVCでの暴言にはVC禁止措置をとる可能性もあります</p>
 
-                <h3 class="text-3xl font-bold text-cyan-300 mb-2 mt-6">処罰対象</h3>
+                <!-- h3のフォントサイズをモバイル対応 -->
+                <h3 class="text-2xl sm:text-3xl font-bold text-cyan-300 mb-2 mt-6">処罰対象</h3>
                 <ul class="list-disc list-inside space-y-1">
                     <li>荒らしや誹謗中傷</li>
                     <li>差別的発言</li>
@@ -141,7 +177,8 @@
 
         <!-- 質問（FAQ）セクション -->
         <section class="mb-8 text-left">
-            <h2 class="text-3xl font-semibold text-green-400 mb-4 text-center">質問 (FAQ)</h2>
+            <!-- h2のフォントサイズをモバイル対応 -->
+            <h2 class="text-2xl sm:text-3xl font-semibold text-green-400 mb-4 text-center">質問 (FAQ)</h2>
             <div class="space-y-4">
                 <!-- 既存のFAQアイテム1 -->
                 <div class="faq-item">
@@ -217,21 +254,21 @@
             </p>
         </section>
 
-        <footer class="mt-8 pt-8 border-t border-gray-700">
+        <footer class="mt-8 pt-8 border-t footer-border-neon">
             <p class="text-md text-gray-400 mb-2">今すぐ参加してあなたも仲間になろう！</p>
-            <a id="discordInviteLink" href="https://discord.gg/EsXYU9EzHP" target="_blank" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg neon-button no-underline">
+            <a id="discordInviteLink" href="https://discord.gg/EsXYU9EzHP" target="_blank" class="inline-block text-white font-bold py-3 px-6 rounded-lg neon-button no-underline">
                 今すぐ参加！
             </a>
             <!-- ↑ "YOUR_INVITE_CODE" を実際のDiscord招待コードに置き換えてください！ -->
         </footer>
     </div>
 
-    <!-- メッセージボックス (このテーマではDiscordリンクに直接誘導するため、不要になる可能性もありますが、残しておきます) -->
+    <!-- メッセージボックス -->
     <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 hidden">
-        <div class="bg-gray-900 p-6 rounded-lg shadow-xl text-center max-w-sm neon-border">
+        <div class="p-6 rounded-lg shadow-xl text-center max-w-sm main-container-neon">
             <p class="text-xl font-semibold text-cyan-400 mb-4">松のゲームサーバーへようこそ！</p>
             <p class="text-gray-300 mb-6">間もなくあなたのブラウザでDiscordが開きます。楽しい時間を過ごしましょう！</p>
-            <button id="closeMessageBox" class="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-2 px-4 rounded-lg neon-button">閉じる</button>
+            <button id="closeMessageBox" class="text-white font-bold py-2 px-4 rounded-lg neon-button">閉じる</button>
         </div>
     </div>
 
@@ -278,4 +315,3 @@
     </script>
 </body>
 </html>
-
